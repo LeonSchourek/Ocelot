@@ -249,7 +249,7 @@ namespace Ocelot.DependencyInjection
             return this;
         }
 
-        public IOcelotBuilder AddDelegatingHandler(Type delegateType, bool global = false)
+        public IOcelotBuilder AddDelegatingHandler([DynamicallyAccessedMemberTypes.PublicConstructors)] Type delegateType, bool global = false)
         {
             if (!typeof(DelegatingHandler).IsAssignableFrom(delegateType))
             {
@@ -273,7 +273,7 @@ namespace Ocelot.DependencyInjection
             return this;
         }
 
-        public IOcelotBuilder AddDelegatingHandler<THandler>(bool global = false)
+        public IOcelotBuilder AddDelegatingHandler<[DynamicallyAccessedMemberTypes.PublicConstructors)] THandler>(bool global = false)
             where THandler : DelegatingHandler
         {
             if (global)
